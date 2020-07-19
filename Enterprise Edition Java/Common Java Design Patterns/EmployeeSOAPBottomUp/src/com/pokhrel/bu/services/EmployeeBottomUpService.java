@@ -1,7 +1,8 @@
 package com.pokhrel.bu.services;
 
 import com.pokhrel.bu.businessobject.EmployeeServiceBusinessObject;
-import com.pokhrel.datatransferobject.EmployeeDataTransferObject;
+import com.pokhrel.bu.datatransferobject.EmployeeDataTransferObject;
+
 
 public class EmployeeBottomUpService {
 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://services.bu.pokhrel.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://services.bu.pokhrel.com" xmlns:intf="http://services.bu.pokhrel.com" xmlns:tns1="http://datatransferobject.pokhrel.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions targetNamespace="http://services.bu.pokhrel.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://services.bu.pokhrel.com" xmlns:intf="http://services.bu.pokhrel.com" xmlns:tns1="http://datatransferobject.bu.pokhrel.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <!--WSDL created by Apache Axis version: 1.4
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://services.bu.pokhrel.com" xmlns="http://www.w3.org/2001/XMLSchema">
-   <import namespace="http://datatransferobject.pokhrel.com"/>
+   <import namespace="http://datatransferobject.bu.pokhrel.com"/>
    <element name="getEmployeeInfo">
     <complexType>
      <sequence>
@@ -20,7 +20,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     </complexType>
    </element>
   </schema>
-  <schema elementFormDefault="qualified" targetNamespace="http://datatransferobject.pokhrel.com" xmlns="http://www.w3.org/2001/XMLSchema">
+  <schema elementFormDefault="qualified" targetNamespace="http://datatransferobject.bu.pokhrel.com" xmlns="http://www.w3.org/2001/XMLSchema">
    <complexType name="EmployeeDataTransferObject">
     <sequence>
      <element name="emailId" nillable="true" type="xsd:string"/>
@@ -92,7 +92,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdl:port binding="impl:EmployeeBottomUpServiceSoapBinding" name="EmployeeBottomUpService">
 
-         <wsdlsoap:address location="http://192.168.0.34:8081/EmployeeSOAPBottomUp/services/EmployeeBottomUpService"/>
+         <wsdlsoap:address location="http://localhost:8081/EmployeeSOAPBottomUp/services/EmployeeBottomUpService"/>
 
       </wsdl:port>
 

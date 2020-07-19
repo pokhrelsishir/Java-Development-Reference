@@ -15,20 +15,20 @@
   <service name="EmployeeBottomUpService" provider="java:RPC" style="wrapped" use="literal">
       <parameter name="wsdlTargetNamespace" value="http://services.bu.pokhrel.com"/>
       <parameter name="wsdlServiceElement" value="EmployeeBottomUpServiceService"/>
-      <parameter name="schemaQualified" value="http://services.bu.pokhrel.com,http://datatransferobject.pokhrel.com"/>
+      <parameter name="schemaQualified" value="http://datatransferobject.bu.pokhrel.com,http://services.bu.pokhrel.com"/>
       <parameter name="wsdlServicePort" value="EmployeeBottomUpService"/>
       <parameter name="className" value="com.pokhrel.bu.services.EmployeeBottomUpServiceSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="EmployeeBottomUpService"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="getEmployeeInfo" qname="operNS:getEmployeeInfo" xmlns:operNS="http://services.bu.pokhrel.com" returnQName="retNS:getEmployeeInfoReturn" xmlns:retNS="http://services.bu.pokhrel.com" returnType="rtns:EmployeeDataTransferObject" xmlns:rtns="http://datatransferobject.pokhrel.com" soapAction="" >
+      <operation name="getEmployeeInfo" qname="operNS:getEmployeeInfo" xmlns:operNS="http://services.bu.pokhrel.com" returnQName="retNS:getEmployeeInfoReturn" xmlns:retNS="http://services.bu.pokhrel.com" returnType="rtns:EmployeeDataTransferObject" xmlns:rtns="http://datatransferobject.bu.pokhrel.com" soapAction="" >
         <parameter qname="pns:empId" xmlns:pns="http://services.bu.pokhrel.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <parameter name="allowedMethods" value="getEmployeeInfo"/>
 
       <typeMapping
-        xmlns:ns="http://datatransferobject.pokhrel.com"
+        xmlns:ns="http://datatransferobject.bu.pokhrel.com"
         qname="ns:EmployeeDataTransferObject"
-        type="java:com.pokhrel.datatransferobject.EmployeeDataTransferObject"
+        type="java:com.pokhrel.bu.datatransferobject.EmployeeDataTransferObject"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""

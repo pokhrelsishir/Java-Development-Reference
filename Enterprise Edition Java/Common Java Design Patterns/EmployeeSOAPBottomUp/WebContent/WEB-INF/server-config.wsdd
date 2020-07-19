@@ -33,7 +33,7 @@
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
  </ns1:service>
  <ns1:service name="EmployeeBottomUpService" provider="java:RPC" style="wrapped" use="literal">
-  <ns3:operation name="getEmployeeInfo" qname="ns1:getEmployeeInfo" returnQName="ns1:getEmployeeInfoReturn" returnType="ns2:EmployeeDataTransferObject" soapAction="" xmlns:ns1="http://services.bu.pokhrel.com" xmlns:ns2="http://datatransferobject.pokhrel.com" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
+  <ns3:operation name="getEmployeeInfo" qname="ns1:getEmployeeInfo" returnQName="ns1:getEmployeeInfoReturn" returnType="ns2:EmployeeDataTransferObject" soapAction="" xmlns:ns1="http://services.bu.pokhrel.com" xmlns:ns2="http://datatransferobject.bu.pokhrel.com" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
    <ns3:parameter qname="ns1:empId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns3:operation>
   <ns1:parameter name="allowedMethods" value="getEmployeeInfo"/>
@@ -41,10 +41,10 @@
   <ns1:parameter name="wsdlPortType" value="EmployeeBottomUpService"/>
   <ns1:parameter name="className" value="com.pokhrel.bu.services.EmployeeBottomUpService"/>
   <ns1:parameter name="wsdlServicePort" value="EmployeeBottomUpService"/>
-  <ns1:parameter name="schemaQualified" value="http://services.bu.pokhrel.com,http://datatransferobject.pokhrel.com"/>
+  <ns1:parameter name="schemaQualified" value="http://datatransferobject.bu.pokhrel.com,http://services.bu.pokhrel.com"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://services.bu.pokhrel.com"/>
   <ns1:parameter name="wsdlServiceElement" value="EmployeeBottomUpServiceService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns3:EmployeeDataTransferObject" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.pokhrel.datatransferobject.EmployeeDataTransferObject" xmlns:ns3="http://datatransferobject.pokhrel.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns3:EmployeeDataTransferObject" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.pokhrel.bu.datatransferobject.EmployeeDataTransferObject" xmlns:ns3="http://datatransferobject.bu.pokhrel.com"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>

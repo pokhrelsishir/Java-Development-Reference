@@ -1,4 +1,4 @@
-package com.pokhrel.datatransferobject;
+package com.pokhrel.bu.datatransferobject;
 
 public class EmployeeDataTransferObject {
 
