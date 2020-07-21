@@ -23,9 +23,18 @@ public class EmployeeServiceBusinessObject {
 		}
 		else {
 			System.out.println("Please provide valid request...");
-		}
+		} 
 		
 		return empDto;
+	}
+	
+	public String addEmployeeInfo(String empId, String firstName, String lastName, String email)
+	{
+		System.out.println("	EmployeeServiceBusinessObject.addEmployeeInfo - start: ");
+		EmployeeServiceDataAccessObject empDao = new EmployeeServiceDataAccessObject();
+		String result  = empDao.addEmployeeInfoUsingHibernate(empId, firstName, lastName, email);
+		System.out.println("	EmployeeServiceBusinessObject.addEmployeeInfo - end: " );
+		return result;
 	}
 	
 

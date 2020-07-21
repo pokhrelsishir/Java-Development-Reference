@@ -20,10 +20,16 @@
       <parameter name="className" value="com.pokhrel.bu.services.EmployeeBottomUpServiceSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="EmployeeBottomUpService"/>
       <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="addEmployeeInfo" qname="operNS:addEmployeeInfo" xmlns:operNS="http://services.bu.pokhrel.com" returnQName="retNS:addEmployeeInfoReturn" xmlns:retNS="http://services.bu.pokhrel.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:empId" xmlns:pns="http://services.bu.pokhrel.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:firstName" xmlns:pns="http://services.bu.pokhrel.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:lastName" xmlns:pns="http://services.bu.pokhrel.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:email" xmlns:pns="http://services.bu.pokhrel.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
       <operation name="getEmployeeInfo" qname="operNS:getEmployeeInfo" xmlns:operNS="http://services.bu.pokhrel.com" returnQName="retNS:getEmployeeInfoReturn" xmlns:retNS="http://services.bu.pokhrel.com" returnType="rtns:EmployeeDataTransferObject" xmlns:rtns="http://datatransferobject.bu.pokhrel.com" soapAction="" >
         <parameter qname="pns:empId" xmlns:pns="http://services.bu.pokhrel.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <parameter name="allowedMethods" value="getEmployeeInfo"/>
+      <parameter name="allowedMethods" value="addEmployeeInfo getEmployeeInfo"/>
 
       <typeMapping
         xmlns:ns="http://datatransferobject.bu.pokhrel.com"

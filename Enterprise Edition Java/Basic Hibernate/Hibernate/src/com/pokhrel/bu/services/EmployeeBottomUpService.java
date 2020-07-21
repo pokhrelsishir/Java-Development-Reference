@@ -22,9 +22,12 @@ public class EmployeeBottomUpService {
 	
 	public String addEmployeeInfo(String empId, String firstName, String lastName, String email)
 	{
-		System.out.println("EmployeeBottomUpService.addEmployeeInfo - invoked: "+empId);
-		
-		return "Success - added : "+empId;
+		System.out.println("EmployeeBottomUpService.addEmployeeInfo - start: "+empId);
+		EmployeeServiceBusinessObject bo = new EmployeeServiceBusinessObject();
+		String result = bo.addEmployeeInfo(empId, firstName, lastName, email);
+		System.out.println("EmployeeBottomUpService.addEmployeeInfo - end: "+empId);
+
+		return result;
 	}
 
 }
