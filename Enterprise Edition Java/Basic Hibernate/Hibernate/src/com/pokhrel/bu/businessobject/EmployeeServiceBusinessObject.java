@@ -32,7 +32,10 @@ public class EmployeeServiceBusinessObject {
 	{
 		System.out.println("	EmployeeServiceBusinessObject.addEmployeeInfo - start: ");
 		EmployeeServiceDataAccessObject empDao = new EmployeeServiceDataAccessObject();
-		String result  = empDao.addEmployeeInfoUsingHibernate(empId, firstName, lastName, email);
+		
+		EmployeeDataTransferObject empDto = new EmployeeDataTransferObject(Integer.parseInt(empId),firstName,lastName,email);
+		
+		String result  = empDao.addEmployeeInfoUsingHibernate(empDto);
 		System.out.println("	EmployeeServiceBusinessObject.addEmployeeInfo - end: " );
 		return result;
 	}

@@ -78,21 +78,26 @@ public class EmployeeServiceDataAccessObject {
 		return empList.get(0);
 	}
 	
-	public String addEmployeeInfoUsingHibernate(String empId, String firstName, String lastName, String email)
+	public String addEmployeeInfoUsingHibernate(EmployeeDataTransferObject empDto)
 	{
 		System.out.println("		EmployeeServiceDataAccessObject.addEmployeeInfo - start: ");
 		Session ses = getHibernateSession();
 		String result = "Employee Record added sucessfully...";
 		try {
-		EmployeeDataTransferObject empDto = new EmployeeDataTransferObject();
-		empDto.setEmpId(Integer.parseInt(empId));
-		empDto.setFirstName(firstName);
-		empDto.setLastName(lastName);
-		empDto.setEmailId(email);
+			
+			if(empDto!=null)
+			{
+				ses.getTransaction().begin();
+				ses.save(empDto);
+				ses.getTransaction().commit();
+			}
+			
+//		EmployeeDataTransferObject empDto = new EmployeeDataTransferObject();
+//		empDto.setEmpId(Integer.parseInt(empId));
+//		empDto.setFirstName(firstName);
+//		empDto.setLastName(lastName);
+//		empDto.setEmailId(email);
 		
-		ses.getTransaction().begin();
-		ses.save(empDto);
-		ses.getTransaction().commit();
 		}
 		catch(Exception e)
 		{
@@ -103,7 +108,7 @@ public class EmployeeServiceDataAccessObject {
 		finally {
 			ses.close();
 		}
-		System.out.println("		EmployeeServiceDataAccessObject.addEmployeeInfo - start: ");
+		System.out.println("		EmployeeServiceDataAccessObject.addEmployeeInfo - end: ");
 		
 		return result;
 	}

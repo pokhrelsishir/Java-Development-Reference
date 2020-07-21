@@ -7,7 +7,18 @@ public class EmployeeDataTransferObject {
 	private String lastName;
 	private String emailId;
 	
+	public EmployeeDataTransferObject(int empId, String firstName, String lastName, String emailId)
+	{
+		this.empId = empId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.emailId = emailId;
+	}
+	
+	public EmployeeDataTransferObject()
+	{
 
+	}
 	
 	public int getEmpId() {
 		return empId;
