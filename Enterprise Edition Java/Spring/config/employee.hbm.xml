@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping>
+   <class name = "com.pokhrel.bu.datatransferobject.EmployeeDataTransferObject" table = "EMPLOYEES">
+      
+      <id name = "empId" type = "int"> 
+		<column name = "EMPLOYEE_ID" />		
+      </id>
+      
+      <property name = "lastName" type = "string">
+		<column name = "LAST_NAME" length = "25" not-null = "false" />
+	  </property>
+	  
+	  <property name = "firstName" type = "string">
+		<column name = "FIRST_NAME" length = "20" not-null = "false" />
+	  </property>
+	  
+	  <property name = "emailId" type = "string">
+		<column name = "EMAIL" />
+	  </property>
+	  
+	  <property name = "salary" type = "string">
+		<column name = "SALARY" />
+	  </property>
+      
+      
+   </class>
+   
+</hibernate-mapping>
