@@ -10,6 +10,9 @@
       <parameter name="className" value="com.pokhrel.bu.services.EmployeeBottomUpService"/>
       <parameter name="wsdlPortType" value="EmployeeBottomUpService"/>
       <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://services.bu.pokhrel.com" xmlns:retNS="http://services.bu.pokhrel.com" xmlns:rtns="http://datatransferobject.bu.pokhrel.com" name="getEmployeeInfo" qname="operNS:getEmployeeInfo" returnQName="retNS:getEmployeeInfoReturn" returnType="rtns:EmployeeDataTransferObject" soapAction="">
+        <parameter xmlns:pns="http://services.bu.pokhrel.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:empId" type="tns:string"/>
+      </operation>
       <operation xmlns:operNS="http://services.bu.pokhrel.com" xmlns:retNS="http://services.bu.pokhrel.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addEmployeeInfo" qname="operNS:addEmployeeInfo" returnQName="retNS:addEmployeeInfoReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://services.bu.pokhrel.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:empId" type="tns:string"/>
         <parameter xmlns:pns="http://services.bu.pokhrel.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:firstName" type="tns:string"/>
@@ -17,10 +20,7 @@
         <parameter xmlns:pns="http://services.bu.pokhrel.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:email" type="tns:string"/>
         <parameter xmlns:pns="http://services.bu.pokhrel.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:salary" type="tns:string"/>
       </operation>
-      <operation xmlns:operNS="http://services.bu.pokhrel.com" xmlns:retNS="http://services.bu.pokhrel.com" xmlns:rtns="http://datatransferobject.bu.pokhrel.com" name="getEmployeeInfo" qname="operNS:getEmployeeInfo" returnQName="retNS:getEmployeeInfoReturn" returnType="rtns:EmployeeDataTransferObject" soapAction="">
-        <parameter xmlns:pns="http://services.bu.pokhrel.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:empId" type="tns:string"/>
-      </operation>
-      <parameter name="allowedMethods" value="addEmployeeInfo getEmployeeInfo"/>
+      <parameter name="allowedMethods" value="getEmployeeInfo addEmployeeInfo"/>
 
       <typeMapping xmlns:ns="http://datatransferobject.bu.pokhrel.com" qname="ns:EmployeeDataTransferObject" type="java:com.pokhrel.bu.datatransferobject.EmployeeDataTransferObject" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
   </service>

@@ -5,6 +5,20 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://services.bu.pokhrel.com" xmlns="http://www.w3.org/2001/XMLSchema">
    <import namespace="http://datatransferobject.bu.pokhrel.com"/>
+   <element name="getEmployeeInfo">
+    <complexType>
+     <sequence>
+      <element name="empId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getEmployeeInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="getEmployeeInfoReturn" type="tns1:EmployeeDataTransferObject"/>
+     </sequence>
+    </complexType>
+   </element>
    <element name="addEmployeeInfo">
     <complexType>
      <sequence>
@@ -20,20 +34,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <complexType>
      <sequence>
       <element name="addEmployeeInfoReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getEmployeeInfo">
-    <complexType>
-     <sequence>
-      <element name="empId" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getEmployeeInfoResponse">
-    <complexType>
-     <sequence>
-      <element name="getEmployeeInfoReturn" type="tns1:EmployeeDataTransferObject"/>
      </sequence>
     </complexType>
    </element>
@@ -85,18 +85,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="EmployeeBottomUpService">
 
-      <wsdl:operation name="addEmployeeInfo">
-
-         <wsdl:input message="impl:addEmployeeInfoRequest" name="addEmployeeInfoRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:addEmployeeInfoResponse" name="addEmployeeInfoResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="getEmployeeInfo">
 
          <wsdl:input message="impl:getEmployeeInfoRequest" name="getEmployeeInfoRequest">
@@ -109,29 +97,23 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="addEmployeeInfo">
+
+         <wsdl:input message="impl:addEmployeeInfoRequest" name="addEmployeeInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addEmployeeInfoResponse" name="addEmployeeInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
    </wsdl:portType>
 
    <wsdl:binding name="EmployeeBottomUpServiceSoapBinding" type="impl:EmployeeBottomUpService">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-
-      <wsdl:operation name="addEmployeeInfo">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="addEmployeeInfoRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="addEmployeeInfoResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
 
       <wsdl:operation name="getEmployeeInfo">
 
@@ -144,6 +126,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="getEmployeeInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addEmployeeInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addEmployeeInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addEmployeeInfoResponse">
 
             <wsdlsoap:body use="literal"/>
 

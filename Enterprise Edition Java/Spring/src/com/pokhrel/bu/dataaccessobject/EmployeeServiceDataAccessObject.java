@@ -8,18 +8,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
+import com.pokhrel.bu.businessobject.EmployeeServiceBusinessObject;
 import com.pokhrel.bu.constants.AppConstants;
 import com.pokhrel.bu.datatransferobject.EmployeeDataTransferObject;
 import com.pokhrel.bu.props.ApplicationProperties;
 
 public class EmployeeServiceDataAccessObject {
 
-	public EmployeeDataTransferObject getEmployeeInfo(String empId) {
+	Logger log = Logger.getLogger(EmployeeServiceDataAccessObject.class);
+
+	
+	public EmployeeDataTransferObject getEmployeeInfo(String empId) throws SQLException{
 		EmployeeDataTransferObject empDto = null;
 		Connection con = null;
 
@@ -61,9 +66,13 @@ public class EmployeeServiceDataAccessObject {
 		return ses;
 	}
 
-	public EmployeeDataTransferObject getEmployeeInfoUsingHibernate(String empId) {
+	public EmployeeDataTransferObject getEmployeeInfoUsingHibernate(String empId) throws Exception{
 		
 		List<EmployeeDataTransferObject> empList = null;
+		
+		//System.out.println("	EmployeeServiceDataAccessObject.getEmployeeInfoUsingHibernate - start: ");
+		log.debug("	EmployeeServiceDataAccessObject.getEmployeeInfoUsingHibernate - start: ");
+
 		try {
 		Session ses = getHibernateSession();
 		Query query = ses.createQuery(" from EmployeeDataTransferObject where empId ="+empId);
@@ -73,14 +82,20 @@ public class EmployeeServiceDataAccessObject {
 		catch(Exception e)
 		{
 			e.printStackTrace();
+			throw e;
 		}
 		
+		//System.out.println("	EmployeeServiceDataAccessObject.getEmployeeInfoUsingHibernate - end: ");
+		log.debug("	EmployeeServiceDataAccessObject.getEmployeeInfoUsingHibernate - end: ");
+
 		return empList.get(0);
 	}
 	
-	public String addEmployeeInfoUsingHibernate(EmployeeDataTransferObject empDto)
+	public String addEmployeeInfoUsingHibernate(EmployeeDataTransferObject empDto) throws Exception
 	{
-		System.out.println("		EmployeeServiceDataAccessObject.addEmployeeInfo - start: ");
+		//System.out.println("		EmployeeServiceDataAccessObject.addEmployeeInfoUsingHibernate - start: ");
+		log.debug("		EmployeeServiceDataAccessObject.addEmployeeInfoUsingHibernate - start: ");
+		
 		Session ses = getHibernateSession();
 		String result = "Employee Record added sucessfully...";
 		try {
@@ -103,12 +118,14 @@ public class EmployeeServiceDataAccessObject {
 		{
 			ses.getTransaction().rollback();
 			result = "Error in adding record in employee table...";
-			
+			log.error("		EmployeeServiceDataAccessObject.addEmployeeInfoUsingHibernate - end: " + e.getMessage());
+			throw e;
 		}
 		finally {
 			ses.close();
 		}
-		System.out.println("		EmployeeServiceDataAccessObject.addEmployeeInfo - end: ");
+		//System.out.println("		EmployeeServiceDataAccessObject.addEmployeeInfoUsingHibernate - end: ");
+		log.debug("		EmployeeServiceDataAccessObject.addEmployeeInfoUsingHibernate - end: ");
 		
 		return result;
 	}
@@ -134,11 +151,13 @@ public class EmployeeServiceDataAccessObject {
 		catch (ClassNotFoundException e) {
 
 			e.printStackTrace();
+			log.error(" Exception occured..");
 			throw e;
 
 		} catch (SQLException e) {
 
 			e.printStackTrace();
+			log.error(" Exception occured..");
 			throw e;
 		}
 

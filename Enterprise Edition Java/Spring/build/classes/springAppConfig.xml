@@ -6,7 +6,6 @@
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
 	
-	<bean id = "employeeDataAccessObject" class = "com.pokhrel.bu.dataaccessobject.EmployeeServiceDataAccessObject">
-	</bean>
+	<bean id = "employeeDataAO" class = "com.pokhrel.bu.dataaccessobject.EmployeeServiceDataAccessObject"></bean>
 	
 </beans>
