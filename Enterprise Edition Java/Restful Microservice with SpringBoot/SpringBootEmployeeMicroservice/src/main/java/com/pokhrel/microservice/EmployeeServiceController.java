@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,6 +48,21 @@ public class EmployeeServiceController {
 		
 		System.out.println("EmployeeServiceController.getEmployeeInfoByLastName : End : ");
 		return empList;
+	}
+	
+	
+	@RequestMapping(value = "/addEmployeeInfo", 
+			method = RequestMethod.POST, 
+			produces = {"application/json " })
+	public EmployeeResponse addEmployeeInfoByLastName(@RequestBody Employee employee) {
+		
+		System.out.println("EmployeeServiceController.addEmployeeInfo : Start : ");
+		
+		EmployeeResponse resp = empService.addEmployeeInfo(employee);
+		
+		System.out.println("EmployeeServiceController.addEmployeeInfo : End : ");
+		
+		return resp;
 	}
 
 }

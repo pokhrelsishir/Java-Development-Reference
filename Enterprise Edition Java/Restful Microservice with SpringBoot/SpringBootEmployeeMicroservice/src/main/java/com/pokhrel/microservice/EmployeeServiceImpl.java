@@ -7,18 +7,50 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
-
-
-
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-
 	@Autowired
 	EmployeeDBRepository employeeDBRepository;
-	
-	public List<Employee> getEmployeeInfoAll() {
+
+	public EmployeeResponse addEmployeeInfo(Employee emp) {
 		
+		System.out.println("	EmployeeServiceImpl.addEmployeeInfo : Start : ");
+
+		EmployeeResponse resp = new EmployeeResponse();
+		try {
+
+			if(emp.getLastName() != null && emp.getLastName().trim().length()>0)
+			{
+			
+			employeeDBRepository.save(emp);
+
+			resp.setStatus("OK...!!!");
+			
+			resp.setResponseMessage("Employee successfully added...!!!");
+			}
+			else
+			{
+				resp.setStatus("LASTNAME VALIDATION_ERROR...!!!");
+				
+				resp.setResponseMessage("Please provide the mandatory field : LAST_NAME...!!!");
+			}
+		} catch (Exception e) {
+			
+			resp.setStatus("INTERNAL ERROR...NOT OK...!!!");
+			
+			resp.setResponseMessage(e.getMessage());
+			
+		}
+
+		System.out.println("	EmployeeServiceImpl.addEmployeeInfo : End : ");
+
+		return resp;
+
+	}
+
+	public List<Employee> getEmployeeInfoAll() {
+
 //		Employee emp = new Employee();
 //		emp.setEmpId("1001");
 //		emp.setFirstName("Cypress");
@@ -34,7 +66,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 //		List<Employee> empList = new ArrayList<Employee>();
 //		empList.add(emp);
 //		empList.add(emp1);
-		
+
 		System.out.println("EmployeeServiceImpl.getEmployeeInfoAll : Start : ");
 		List<Employee> empList = (List<Employee>) employeeDBRepository.findAll();
 		System.out.println("EmployeeServiceImpl.getEmployeeInfoAll : End : ");
@@ -42,9 +74,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return empList;
 	}
 
-
 	public List<Employee> getEmployeeInfoByLastName(String lastName) {
-		
+
 //		Employee emp = new Employee();
 //		emp.setEmpId("1000");
 //		emp.setFirstName("Pelican");
@@ -56,11 +87,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 		System.out.println("EmployeeServiceImpl.getEmployeeInfoByLastName : Start : ");
 
 		List<Employee> empList = employeeDBRepository.findByLastName(lastName);
-		
+
 		System.out.println("EmployeeServiceImpl.getEmployeeInfoByLastName : End : ");
 
-		
 		return empList;
-	} 
- 
+	}
+
 }
