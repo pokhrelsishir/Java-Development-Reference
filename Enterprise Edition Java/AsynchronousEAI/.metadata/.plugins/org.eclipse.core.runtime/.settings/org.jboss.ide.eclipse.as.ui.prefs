@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+org.jboss.ide.eclipse.as.ui.preferences.disabled.automatic.server.view=true
+org.jboss.ide.eclipse.as.ui.preferences.enabledDecorators.1=true
+org.jboss.ide.eclipse.as.ui.preferences.runtime.last.type.org.jboss.ide.eclipse.as.runtime.71=C\:\\Users\\pokhr\\jboss-as-7.1.0.Final
+org.jboss.ide.eclipse.as.ui.preferences.runtime.last.type.org.jboss.ide.eclipse.as.runtime.eap.71=C\:\\jboss-as-7.1.1.Final
+org.jboss.ide.eclipse.as.ui.wizards.LAST_RUNTIME_CREATED=JBoss EAP 7.1 Runtime
+org.jboss.ide.eclipse.as.ui.wizards.LAST_RUNTIME_TYPE_CREATED=org.jboss.ide.eclipse.as.runtime.eap.71
+org.jboss.ide.eclipse.as.ui.wizards.LAST_SERVER_CREATED=Red Hat JBoss EAP 7.1
+org.jboss.ide.eclipse.as.ui.wizards.LAST_SERVER_TYPE_CREATED=org.jboss.ide.eclipse.as.eap.71
